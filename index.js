@@ -8,7 +8,7 @@ class Sneaker  {
           this.modelo = modelo;
  
 
-     }
+  }
 
  
 }
@@ -148,6 +148,28 @@ while(accept ==="si"){
      switch (marca) {
           case "adidas":
                alert("Usted eligio Adidas")
+
+
+               
+
+let contenedor = document.getElementById("contain")
+
+let diA = document.createElement ("div")
+
+     diA.innerHTML = `<div> 
+                         <h1>Adidas</h1>
+                         <div> Modelo: ${ozweego.modelo} 
+                               Precio $ ${ozweego.precio}</div>
+                         <div> Modelo: ${torsion.modelo} 
+                               Precio $ ${torsion.precio}</div>
+                         <div> Modelo: ${climacool.modelo} 
+                               Precio $ ${climacool.precio}</div>
+
+               </div>`
+contenedor.append(diA)
+
+
+
                let adidas = prompt("Tenemos 3 modelos. Opciones: ozweego, torsion, climacool(ingrese el modelo que desee)").toLowerCase();
                if(adidas == "ozweego"){
                     alert(`El precio de el modelo: ${adidas} =$ ${ozweego.precio} `)
@@ -191,6 +213,25 @@ while(accept ==="si"){
                break;
           case "nike":
                alert("usted eligio Nike,")
+
+let contenedorN = document.getElementById("contain")
+
+let diN = document.createElement ("div")
+
+     diN.innerHTML = `<div> 
+                         <h1>Nike</h1>
+                         <div> Modelo: ${Am90.modelo} 
+                               Precio $ ${Am90.precio}</div>
+                         <div> Modelo: ${Aforce.modelo} 
+                               Precio $ ${Aforce.precio}</div>
+                     
+
+               </div>`
+contenedorN.append(diN)
+
+
+
+
                 let nike = prompt("Tenemos 2 modelos. Opciones: Am90, Aforce (ingrese el modelo que desee)").toLowerCase();
 
                 if(nike == "am90"){
@@ -213,6 +254,21 @@ while(accept ==="si"){
 
                case "puma": 
                alert("usted eligio Puma")
+
+
+let contenedorP = document.getElementById("contain")
+
+let diP = document.createElement ("div")
+
+     diP.innerHTML = `
+                         <h1 >Puma</h1>
+                         <div> Modelo: ${RSX.modelo} 
+                               Precio $ ${RSX.precio}</div>
+                         <div> Modelo: ${Xray.modelo} 
+                               Precio $ ${Xray.precio}</div>`
+contenedorP.append(diP)
+
+
                    let puma = prompt("Tenemos 2 modelos. Opciones: Rsx, Xray (ingrese el modelo que desee)").toLowerCase();
                  if(puma == "rsx"){
                     alert(`El precio de el modelo: ${puma} =$ ${RSX.precio} `)
