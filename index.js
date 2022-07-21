@@ -59,9 +59,26 @@ let precioFinalC = descuento(climacool.precio,membre)
 
 
 
-let emp = prompt("Usted es empleado? si/no")
+let form = document.getElementById("form")
+form.addEventListener("submit", empC);
 
-while(emp ==="si"){
+
+
+function empC(event){
+  event.preventDefault();
+let info =event.target.children[1].value;
+
+
+if(info==="empleado"){
+let divE = document.createElement("div")
+
+divE.innerHTML="Modo Empleado"
+divE.className="oscuro"
+form.append(divE);
+ 
+
+
+while(info ==="empleado"){
 
 
      let aniadir = parseInt( prompt ("Que desea hacer?  1. ver stock  2. añadir modelo  3. eliminar  4. aumentar precio"));
@@ -118,32 +135,31 @@ switch (aniadir) {
      default:
           alert("Selecione una opcion.")
           break;
+    
 }
-
-
-
-
-
-
-
-
-   emp = prompt("desea seguir en modo empleado? si/no");
+         
+         let emp= prompt("desea seguir en modo empleado? si/no").toLocaleLowerCase();
 
      if(emp == "no"){
 
     break;
      }
 
+
 }
 
+}else if(info=="cliente"){
+let divC = document.createElement("div")
 
-let accept = prompt("Desea conocer las sneakers de nuestra tienda? si/no").toLowerCase();
+divC.innerHTML="Modo Cliente"
+divC.className="oscuro"
+
+form.append(divC);
 
 
-if(accept =="si"){
 
 
-while(accept ==="si"){
+while(info ==="cliente"){
       let marca = prompt("Ingrese la marca de sneaker que desea. Opciones: Adidas, Nike, Puma").toLowerCase();
      switch (marca) {
           case "adidas":
@@ -293,12 +309,39 @@ contenedorP.append(diP)
                break;
      }
 
-     accept = prompt("desea seguir viendo modelos? si/no");
+    let accept = prompt("desea seguir viendo modelos? si/no");
 
      if(accept == "no"){
 
      alert("gracias por visitarnos, vuelva pronto");
+     break;
      }
 
 }
-};
+
+}
+
+}
+
+
+
+
+
+
+var input = document.getElementById("busqueda");
+
+
+input.addEventListener("keypress", function(event) {
+
+  if (event.key === "Enter") {
+
+    event.preventDefault();
+let div = document.createElement("div")
+
+div.innerHTML="Proximamente se agregara ese modelo"
+div.className="red"
+input.append(div);
+
+
+  }
+});
