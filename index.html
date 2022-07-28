@@ -4,42 +4,83 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow&family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Tienda Sneakers</title>
   </head>
+
   <body>
     <header>
-      <nav>
-        <ul id="busqueda">
-          <li>one</li>
-          <li>drop</li>
-          <li>one</li>
-          <li>drip</li>
+      <nav class="nav">
+        <ul class="nav-list" id="busqueda">
+          <li class="nav-item">one</li>
+          <li class="nav-item">drop</li>
+          <li class="nav-item">one</li>
+          <li class="nav-item">drip</li>
           <input type="text" placeholder="Buscar Modelo" />
         </ul>
       </nav>
+      <form class="formu" action="" id="form">
+        <h3>ingrese si es empleado o cliente</h3>
+        <input type="text" id="tipo" />
+
+        <button class="formu-boton" id="but">aceptar</button>
+      </form>
     </header>
 
-    <form action="" id="form">
-      <h3>ingrese si es empleado o cliente</h3>
-      <input type="text" id="tipo" />
-
-      <button id="but">aceptar</button>
-    </form>
-    <h1 class="" id="titleprincipal">SneakerShop</h1>
-
-    <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum iure,
-      eos aliquid consectetur omnis quaerat tempora distinctio nostrum corrupti,
-      neque voluptas sunt sint earum accusamus deleniti! Ratione, ipsum a?
+    <div class="hero-M">
+      <h1 class="hero-titulo">Drip</h1>
     </div>
-    <section id="contain"></section>
+    <section class="main">
+      <h1 class="main-titulo" id="titleprincipal">SneakerShop</h1>
 
-    <div><img src="img/zapa1.jpg" alt="zapa1" /></div>
-    <div><img src="img/zapa2.jpg" alt="zapa2" /></div>
-    <div><img src="img/zapa3.jpg" alt="zapa3" /></div>
+      <p class="main-parrafo">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum
+        iure, eos aliquid consectetur omnis quaerat tempora distinctio nostrum
+        corrupti, neque voluptas sunt sint earum accusamus deleniti! Ratione,
+        ipsum a?
+      </p>
+    </section>
+
+    <!-- hacer con js mas dinamico el ingreso de productos y grid -->
+    <section class="flex-items" id="contain">
+      <div><img src="img/zapa1.jpg" alt="zapa1" /></div>
+      <div><img src="img/zapa2.jpg" alt="zapa2" /></div>
+      <div><img src="img/zapa3.jpg" alt="zapa3" /></div>
+      <div><img src="img/zapa1.jpg" alt="zapa1" /></div>
+      <div><img src="img/zapa3.jpg" alt="zapa3" /></div>
+      <div><img src="img/zapa2.jpg" alt="zapa2" /></div>
+    </section>
+
     <div>contenido</div>
-    <footer><div>Footer</div></footer>
+
+    <footer>
+      <section class="pie-conteiner">
+        <div class="pie-column1">
+          <h1>redes</h1>
+          <h3>a</h3>
+          <h3>a</h3>
+        </div>
+        <div class="pie-column1">
+          <h1>soporte</h1>
+          <h3>b</h3>
+          <h3>b</h3>
+        </div>
+        <div class="pie-column1">
+          <h1>contacto</h1>
+          <h3>c</h3>
+          <h3>c</h3>
+        </div>
+      </section>
+      <p class="pie-derechos">
+        2022© <a class="" href="#">Dylan Hoyos</a> . All right reserved.
+      </p>
+    </footer>
 
     <script src="./index.js"></script>
   </body>

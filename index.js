@@ -3,9 +3,10 @@ let membre = 0.15;
 
 
 class Sneaker  {
-     constructor(marca,modelo){
+     constructor(marca,modelo,precio){
           this.marca = marca;
           this.modelo = modelo;
+          this.precio=precio;
  
 
   }
@@ -28,15 +29,27 @@ const Stock = [
      
 ];
 
-let ozweego = Stock.find(zapa=>zapa.modelo=="ozweego");
-let torsion = Stock.find(zapa=>zapa.modelo=="torsion");
-let climacool = Stock.find(zapa=>zapa.modelo=="climacool");
-let Am90 = Stock.find(zapa=>zapa.modelo=="Am90");
-let Aforce = Stock.find(zapa=>zapa.modelo=="Aforce");
-let Xray = Stock.find(zapa=>zapa.modelo=="Xray");
-let RSX = Stock.find(zapa=>zapa.modelo=="RSX");
+let ozweego = JSON.parse(localStorage.getItem("ozweego") );
+let torsion =JSON.parse(localStorage.getItem("torsion") );
+let climacool = JSON.parse(localStorage.getItem("climacool") );
+let Am90 = JSON.parse(localStorage.getItem("Am90") );
+let Aforce = JSON.parse(localStorage.getItem("Aforce") );
+let Xray = JSON.parse(localStorage.getItem("Xray") );
+let RSX = JSON.parse(localStorage.getItem("RSX") );
 
 
+
+localStorage.setItem("Stock", JSON.stringify(Stock))
+
+
+let separar = (key,value) => {localStorage.setItem(key, value)}
+
+for(let reco of Stock){
+     localStorage.setItem(reco.modelo, JSON.stringify(reco)  )
+}
+
+
+let stocktraer = localStorage.getItem("Stock")
 
 
 
@@ -53,12 +66,6 @@ let precioFinalC = descuento(climacool.precio,membre)
 
 
 
-
-
-
-
-
-
 let form = document.getElementById("form")
 form.addEventListener("submit", empC);
 
@@ -66,6 +73,7 @@ form.addEventListener("submit", empC);
 
 function empC(event){
   event.preventDefault();
+ 
 let info =event.target.children[1].value;
 
 
@@ -86,7 +94,7 @@ while(info ==="empleado"){
     
 switch (aniadir) {
      case 1:
-          console.log(Stock)
+          console.log(JSON.parse(stocktraer))
           break;
      case 2:
           let cant = parseInt( prompt("Cuantos Sneakers desea añadir?"));
@@ -94,9 +102,11 @@ switch (aniadir) {
 
           let mark = prompt("Ingrese la marca que desee añadir");
           let mod = prompt("Ingrese el modelo que desee añadir");
+          let prec= prompt("Ingrese el precio que desee añadir");
 
 
-   Stock.push(new Sneaker(mark,mod)); 
+   Stock.push(new Sneaker(mark,mod,prec)); 
+
      }
      let see = prompt("desea ver el stock? si/no")
 
@@ -151,6 +161,7 @@ switch (aniadir) {
 }else if(info=="cliente"){
 let divC = document.createElement("div")
 
+
 divC.innerHTML="Modo Cliente"
 divC.className="oscuro"
 
@@ -172,7 +183,7 @@ let contenedor = document.getElementById("contain")
 
 let diA = document.createElement ("div")
 
-     diA.innerHTML = `<div> 
+     diA.innerHTML = `<div class="muestra-stock"> 
                          <h1>Adidas</h1>
                          <div> Modelo: ${ozweego.modelo} 
                                Precio $ ${ozweego.precio}</div>
@@ -234,7 +245,7 @@ let contenedorN = document.getElementById("contain")
 
 let diN = document.createElement ("div")
 
-     diN.innerHTML = `<div> 
+     diN.innerHTML = `<div class="muestra-stock"> 
                          <h1>Nike</h1>
                          <div> Modelo: ${Am90.modelo} 
                                Precio $ ${Am90.precio}</div>
@@ -276,12 +287,14 @@ let contenedorP = document.getElementById("contain")
 
 let diP = document.createElement ("div")
 
-     diP.innerHTML = `
-                         <h1 >Puma</h1>
+     diP.innerHTML = `<div class="muestra-stock">
+                         <h1>Puma</h1>
                          <div> Modelo: ${RSX.modelo} 
                                Precio $ ${RSX.precio}</div>
                          <div> Modelo: ${Xray.modelo} 
-                               Precio $ ${Xray.precio}</div>`
+                               Precio $ ${Xray.precio}</div>
+                              </div> `
+
 contenedorP.append(diP)
 
 
