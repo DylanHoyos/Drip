@@ -77,7 +77,7 @@ body {
 .muestra-stock {
   min-height: 200px;
   width: 350px;
-  background-color: rebeccapurple;
+  background-color: rgba(214, 214, 214, 0.808);
   text-align: center;
 }
 .oscuro {

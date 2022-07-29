@@ -39,19 +39,19 @@ let RSX = JSON.parse(localStorage.getItem("RSX") );
 
 
 
-localStorage.setItem("Stock", JSON.stringify(Stock))
 
+localStorage.setItem("stock", JSON.stringify(Stock))
 
+let base= JSON.parse(localStorage.getItem("stock")) 
+
+let stocknew = base;
+let mark,mod,prec;
+    
 let separar = (key,value) => {localStorage.setItem(key, value)}
 
 for(let reco of Stock){
      localStorage.setItem(reco.modelo, JSON.stringify(reco)  )
 }
-
-
-let stocktraer = localStorage.getItem("Stock")
-
-
 
 function carritoa(){
       alert(`El Sneaker se agrego al carrito`)
@@ -62,6 +62,7 @@ const descuento = (a,b) => a-(a*b)
 let precioFinalO = descuento(ozweego.precio,membre)
 let precioFinalT = descuento(torsion.precio,membre)
 let precioFinalC = descuento(climacool.precio,membre)
+
 
 
 
@@ -94,28 +95,37 @@ while(info ==="empleado"){
     
 switch (aniadir) {
      case 1:
-          console.log(JSON.parse(stocktraer))
+           console.log(stocknew)
           break;
      case 2:
-          let cant = parseInt( prompt("Cuantos Sneakers desea añadir?"));
+                 let cant = parseInt( prompt("Cuantos Sneakers desea añadir?"));
      for(let i=0; i< cant; i++){
 
-          let mark = prompt("Ingrese la marca que desee añadir");
-          let mod = prompt("Ingrese el modelo que desee añadir");
-          let prec= prompt("Ingrese el precio que desee añadir");
+          mark = prompt("Ingrese la marca que desee añadir");
+           mod = prompt("Ingrese el modelo que desee añadir");
+           prec= prompt("Ingrese el precio que desee añadir");
+
+       let prod = {
+     marca:mark,
+     modelo:mod,
+     precio:prec
+
+}
 
 
-   Stock.push(new Sneaker(mark,mod,prec)); 
+   stocknew.push(prod); 
+   localStorage.setItem(mark,JSON.stringify(stocknew));
+  
+
 
      }
-     let see = prompt("desea ver el stock? si/no")
+     let see = prompt("desea ver el stock? si/no").toLocaleLowerCase();
 
      if(see==="si"){
-          console.log(Stock);
-            
+          console.log(JSON.parse(localStorage.getItem(mark)));
+       
+break;
      }
-
-          break;
      case 3:
 
           let aux= prompt("ingrese el modelo que desea sacar del stock").toLocaleLowerCase();
@@ -358,3 +368,22 @@ input.append(div);
 
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
