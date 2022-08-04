@@ -28,6 +28,17 @@ const Stock = [
      { marca: " puma", modelo: "RSX", precio: 25999 },
 
 ];
+localStorage.setItem("stock", JSON.stringify(Stock))
+
+let base = JSON.parse(localStorage.getItem("stock"))
+
+let separar = (key, value) => { localStorage.setItem(key, value) }
+
+for (let reco of Stock) {
+     separar(reco.modelo, JSON.stringify(reco))
+}
+
+
 
 let ozweego = JSON.parse(localStorage.getItem("ozweego"));
 let torsion = JSON.parse(localStorage.getItem("torsion"));
@@ -37,27 +48,15 @@ let Aforce = JSON.parse(localStorage.getItem("Aforce"));
 let Xray = JSON.parse(localStorage.getItem("Xray"));
 let RSX = JSON.parse(localStorage.getItem("RSX"));
 
+// let stocknew = {...base};
+
 let { marca: marcaO, modelo: modeloO, precio: precioO } = ozweego;
 let { marca: marcaT, modelo: modeloT, precio: precioT } = torsion;
 let { marca: marcaC, modelo: modeloC, precio: precioC } = climacool;
 
-
-
-
-localStorage.setItem("stock", JSON.stringify(Stock))
-
-let base = JSON.parse(localStorage.getItem("stock"))
-
-// let stocknew = {...base};
-
-
 let mark, mod, prec;
 
-let separar = (key, value) => { localStorage.setItem(key, value) }
 
-for (let reco of Stock) {
-     separar(reco.modelo, JSON.stringify(reco))
-}
 
 function carritoa() {
      alert(`El Sneaker se agrego al carrito`)
@@ -184,6 +183,7 @@ function empC(event) {
           divC.className = "oscuro"
 
           form.append(divC);
+
 
 
 
