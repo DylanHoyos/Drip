@@ -19,13 +19,13 @@ class Sneaker {
 
 const Stock = [
 
-     { marca: "adidas", modelo: "ozweego", precio: 34999 },
-     { marca: "adidas", modelo: "torsion", precio: 30999 },
-     { marca: "adidas", modelo: "climacool", precio: 24999 },
-     { marca: "nike", modelo: "Am90", precio: 26999 },
-     { marca: "nike", modelo: "Aforce", precio: 20999 },
-     { marca: "puma", modelo: "Xray", precio: 22999 },
-     { marca: " puma", modelo: "RSX", precio: 25999 },
+     { marca: "adidas", modelo: "ozweego", precio: 34999, img: "img/zapa3.jpg" },
+     { marca: "adidas", modelo: "torsion", precio: 30999, img: "img/zapa3.jpg" },
+     { marca: "adidas", modelo: "climacool", precio: 24999, img: "img/zapa3.jpg" },
+     { marca: "nike", modelo: "Am90", precio: 26999, img: "img/zapa3.jpg" },
+     { marca: "nike", modelo: "Aforce", precio: 20999, img: "img/zapa3.jpg" },
+     { marca: "puma", modelo: "Xray", precio: 22999, img: "img/zapa3.jpg" },
+     { marca: " puma", modelo: "RSX", precio: 25999, img: "img/zapa3.jpg" },
 
 ];
 localStorage.setItem("stock", JSON.stringify(Stock))
@@ -84,10 +84,28 @@ function empC(event) {
 
 
      if (info === "empleado") {
+          Toastify({
+               text: "Se ingreso correctamente",
+               style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+
+               },
+
+               offset: {
+
+                    x: 0, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+                    y: 720
+                    // vertical axis - can be a number or a string indicating unity. eg: '2em'
+               },
+
+
+          }).showToast();
+
           let divE = document.createElement("div")
 
-          divE.innerHTML = "Modo Empleado"
-          divE.className = "oscuro"
+
+          divE.innerHTML = "MODO EMPLEADO"
+
           form.append(divE);
 
 
@@ -168,257 +186,292 @@ function empC(event) {
                let emp = prompt("desea seguir en modo empleado? si/no").toLocaleLowerCase();
 
                if (emp == "no") {
+                    const Toast = Swal.mixin({
+                         toast: true,
+                         position: 'top-end',
+                         showConfirmButton: false,
+                         timer: 3000,
+                         timerProgressBar: true,
+                         didOpen: (toast) => {
+                              toast.addEventListener('mouseenter', Swal.stopTimer)
+                              toast.addEventListener('mouseleave', Swal.resumeTimer)
+                         }
+                    })
 
+                    Toast.fire({
+                         icon: 'success',
+                         title: 'Salio del modo empleado correctamente'
+                    })
                     break;
                }
 
 
           }
 
-     } else if (info == "cliente") {
-          let divC = document.createElement("div")
+          // } else if (info == "cliente") {
+          //      let divC = document.createElement("div")
 
 
-          divC.innerHTML = "Modo Cliente"
-          divC.className = "oscuro"
+          //      divC.innerHTML = "Modo Cliente"
+          //      divC.className = "oscuro"
 
-          form.append(divC);
+          //      form.append(divC);
 
 
 
 
 
-          while (info === "cliente") {
-               let marca = prompt("Ingrese la marca de sneaker que desea. Opciones: Adidas, Nike, Puma").toLowerCase();
-               switch (marca) {
-                    case "adidas":
-                         alert("Usted eligio Adidas")
+          //      while (info === "cliente") {
 
 
 
 
-                         // let contenedor = document.getElementById("contain")
+          //           let marca = prompt("Ingrese la marca de sneaker que desea. Opciones: Adidas, Nike, Puma").toLowerCase();
+          //           switch (marca) {
+          //                case "adidas":
+          //                     alert("Usted eligio Adidas")
 
-                         // let diA = document.createElement ("div")
 
-                         //      diA.innerHTML = `<div class="muestra-stock"> 
-                         //                          <h1>Adidas</h1>
-                         //                          <div> Modelo: ${ozweego.modelo} 
-                         //                                Precio $ ${ozweego.precio}</div>
-                         //                          <div> Modelo: ${torsion.modelo} 
-                         //                                Precio $ ${torsion.precio}</div>
-                         //                          <div> Modelo: ${climacool.modelo} 
-                         //                                Precio $ ${climacool.precio}</div>
 
-                         //                </div>`
-                         // contenedor.append(diA)
 
+          //                     // let contenedor = document.getElementById("contain")
 
+          //                     // let diA = document.createElement ("div")
 
-                         let adidas = prompt("Tenemos 3 modelos. Opciones: ozweego, torsion, climacool(ingrese el modelo que desee)").toLowerCase();
-                         if (adidas == "ozweego") {
+          //                     //      diA.innerHTML = `<div class="muestra-stock">
+          //                     //                          <h1>Adidas</h1>
+          //                     //                          <div> Modelo: ${ozweego.modelo}
+          //                     //                                Precio $ ${ozweego.precio}</div>
+          //                     //                          <div> Modelo: ${torsion.modelo}
+          //                     //                                Precio $ ${torsion.precio}</div>
+          //                     //                          <div> Modelo: ${climacool.modelo}
+          //                     //                                Precio $ ${climacool.precio}</div>
 
-                              alert(`El precio de el modelo: ${adidas} =$ ${precioO} `)
-                              let compra = prompt("Desea comprarla? si/no").toLowerCase();
-                              if (compra == "si") {
-                                   let contenedor = document.getElementById("carritoadd")
+          //                     //                </div>`
+          //                     // contenedor.append(diA)
 
-                                   let diA = document.createElement("div")
 
-                                   diA.innerHTML = `<div class="muestra-stock"> 
-                         <h1>Adidas</h1>
-                         <div> Modelo: ${modeloO} 
-                               Precio $ ${precioO}</div>          
-                                    </div>`
-                                   contenedor.append(diA)
-                                   let membresia = prompt("Tiene membresia Adidas? si/no").toLowerCase();
 
-                                   membresia == "si" ? alert(`Se le aplicara un descuento por tener membresia, el precio final sera:$${precioFinalO}`) : carritoa();
+          //                     let adidas = prompt("Tenemos 3 modelos. Opciones: ozweego, torsion, climacool(ingrese el modelo que desee)").toLowerCase();
+          //                     if (adidas == "ozweego") {
 
-                              }
+          //                          alert(`El precio de el modelo: ${adidas} =$ ${precioO} `)
+          //                          let compra = prompt("Desea comprarla? si/no").toLowerCase();
+          //                          if (compra == "si") {
+          //                               let contenedor = document.getElementById("carritoadd")
 
-                         } else if (adidas == "torsion") {
+          //                               let diA = document.createElement("div")
 
+          //                               diA.innerHTML = `<div class="muestra-stock">
+          //                     <h1>Adidas</h1>
+          //                     <div> Modelo: ${modeloO}
+          //                           Precio $ ${precioO}</div>
+          //                                </div>`
+          //                               contenedor.append(diA)
+          //                               let membresia = prompt("Tiene membresia Adidas? si/no").toLowerCase();
 
-                              alert(`El precio de el modelo: ${adidas} =$ ${precioT} `)
-                              let compra = prompt("Desea comprarla? si/no").toLowerCase();
-                              if (compra == "si") {
+          //                               membresia == "si" ? alert(`Se le aplicara un descuento por tener membresia, el precio final sera:$${precioFinalO}`) : carritoa();
 
-                                   let contenedor = document.getElementById("carritoadd")
+          //                          }
 
-                                   let diA = document.createElement("div")
+          //                     } else if (adidas == "torsion") {
 
-                                   diA.innerHTML = `<div class="muestra-stock"> 
-                         <h1>Adidas</h1>
-                         <div> Modelo: ${modeloT} 
-                               Precio $ ${precioT}</div>
-                                         </div>`
-                                   contenedor.append(diA)
-                                   let membresia = prompt("Tiene membresia Adidas? si/no").toLowerCase();
-                                   membresia == "si" ? alert(`Se le aplicara un descuento por tener membresia, el precio final sera:$${precioFinalT}`) : carritoa();
-                              }
-                         } else if (adidas == "climacool") {
-                              alert(`El precio de el modelo: ${adidas} =$ ${precioC} `)
-                              let compra = prompt("Desea comprarla? si/no").toLowerCase();
-                              if (compra == "si") {
 
-                                   let contenedor = document.getElementById("carritoadd")
+          //                          alert(`El precio de el modelo: ${adidas} =$ ${precioT} `)
+          //                          let compra = prompt("Desea comprarla? si/no").toLowerCase();
+          //                          if (compra == "si") {
 
-                                   let diA = document.createElement("div")
+          //                               let contenedor = document.getElementById("carritoadd")
 
-                                   diA.innerHTML = `<div class="muestra-stock"> 
-                         <h1>Adidas</h1>
-                         <div> Modelo: ${modeloC} 
-                               Precio $ ${precioC}</div>
+          //                               let diA = document.createElement("div")
 
-               </div>`
-                                   contenedor.append(diA)
-                                   let membresia = prompt("Tiene membresia Adidas? si/no").toLowerCase();
-                                   membresia == "si" ? alert(`Se le aplicara un descuento por tener membresia, el precio final sera:$${precioFinalC}`) : carritoa();
-                              }
-                         }
-                         break;
-                    case "nike":
-                         alert("usted eligio Nike,")
+          //                               diA.innerHTML = `<div class="muestra-stock">
+          //                     <h1>Adidas</h1>
+          //                     <div> Modelo: ${modeloT}
+          //                           Precio $ ${precioT}</div>
+          //                                     </div>`
+          //                               contenedor.append(diA)
+          //                               let membresia = prompt("Tiene membresia Adidas? si/no").toLowerCase();
+          //                               membresia == "si" ? alert(`Se le aplicara un descuento por tener membresia, el precio final sera:$${precioFinalT}`) : carritoa();
+          //                          }
+          //                     } else if (adidas == "climacool") {
+          //                          alert(`El precio de el modelo: ${adidas} =$ ${precioC} `)
+          //                          let compra = prompt("Desea comprarla? si/no").toLowerCase();
+          //                          if (compra == "si") {
 
-                         // let contenedorN = document.getElementById("contain")
+          //                               let contenedor = document.getElementById("carritoadd")
 
-                         // let diN = document.createElement ("div")
+          //                               let diA = document.createElement("div")
 
-                         //      diN.innerHTML = `<div class="muestra-stock"> 
-                         //                          <h1>Nike</h1>
-                         //                          <div> Modelo: ${Am90.modelo} 
-                         //                                Precio $ ${Am90.precio}</div>
-                         //                          <div> Modelo: ${Aforce.modelo} 
-                         //                                Precio $ ${Aforce.precio}</div>
+          //                               diA.innerHTML = `<div class="muestra-stock">
+          //                     <h1>Adidas</h1>
+          //                     <div> Modelo: ${modeloC}
+          //                           Precio $ ${precioC}</div>
 
+          //           </div>`
+          //                               contenedor.append(diA)
+          //                               let membresia = prompt("Tiene membresia Adidas? si/no").toLowerCase();
+          //                               membresia == "si" ? alert(`Se le aplicara un descuento por tener membresia, el precio final sera:$${precioFinalC}`) : carritoa();
+          //                          }
+          //                     }
+          //                     break;
+          //                case "nike":
+          //                     alert("usted eligio Nike,")
 
-                         //                </div>`
-                         // contenedorN.append(diN)
+          //                     // let contenedorN = document.getElementById("contain")
 
+          //                     // let diN = document.createElement ("div")
 
+          //                     //      diN.innerHTML = `<div class="muestra-stock">
+          //                     //                          <h1>Nike</h1>
+          //                     //                          <div> Modelo: ${Am90.modelo}
+          //                     //                                Precio $ ${Am90.precio}</div>
+          //                     //                          <div> Modelo: ${Aforce.modelo}
+          //                     //                                Precio $ ${Aforce.precio}</div>
 
 
-                         let nike = prompt("Tenemos 2 modelos. Opciones: Am90, Aforce (ingrese el modelo que desee)").toLowerCase();
+          //                     //                </div>`
+          //                     // contenedorN.append(diN)
 
-                         if (nike == "am90") {
-                              alert(`El precio de el modelo: ${nike} =$ ${Am90.precio} `)
-                              let compra = prompt("Desea comprarla? si/no").toLowerCase();
-                              if (compra == "si") {
-                                   let contenedorN = document.getElementById("carritoadd")
 
-                                   let diN = document.createElement("div")
 
-                                   diN.innerHTML = `<div class="muestra-stock"> 
-                         <h1>Nike</h1>
-                         <div> Modelo: ${Am90.modelo} 
-                               Precio $ ${Am90.precio}</div>
-               </div>`
-                                   contenedorN.append(diN)
-                                   carritoa();
 
-                              }
+          //                     let nike = prompt("Tenemos 2 modelos. Opciones: Am90, Aforce (ingrese el modelo que desee)").toLowerCase();
 
-                         } else if (nike == "aforce") {
-                              alert(`El precio de el modelo: ${nike} =$ ${Aforce.precio} `)
-                              let compra = prompt("Desea comprarla? si/no").toLowerCase();
-                              if (compra == "si") {
+          //                     if (nike == "am90") {
+          //                          alert(`El precio de el modelo: ${nike} =$ ${Am90.precio} `)
+          //                          let compra = prompt("Desea comprarla? si/no").toLowerCase();
+          //                          if (compra == "si") {
+          //                               let contenedorN = document.getElementById("carritoadd")
 
-                                   let contenedorN = document.getElementById("carritoadd")
+          //                               let diN = document.createElement("div")
 
-                                   let diN = document.createElement("div")
+          //                               diN.innerHTML = `<div class="muestra-stock">
+          //                     <h1>Nike</h1>
+          //                     <div> Modelo: ${Am90.modelo}
+          //                           Precio $ ${Am90.precio}</div>
+          //           </div>`
+          //                               contenedorN.append(diN)
+          //                               carritoa();
 
-                                   diN.innerHTML = `<div class="muestra-stock"> 
-                         <h1>Nike</h1>
-                         <div> Modelo: ${Aforce.modelo} 
-                               Precio $ ${Aforce.precio}</div>
-                    </div>`
-                                   contenedorN.append(diN)
-                                   carritoa();
-                              }
-                         }
+          //                          }
 
-                         break;
+          //                     } else if (nike == "aforce") {
+          //                          alert(`El precio de el modelo: ${nike} =$ ${Aforce.precio} `)
+          //                          let compra = prompt("Desea comprarla? si/no").toLowerCase();
+          //                          if (compra == "si") {
 
-                    case "puma":
-                         alert("usted eligio Puma")
+          //                               let contenedorN = document.getElementById("carritoadd")
 
+          //                               let diN = document.createElement("div")
 
-                         // let contenedorP = document.getElementById("contain")
+          //                               diN.innerHTML = `<div class="muestra-stock">
+          //                     <h1>Nike</h1>
+          //                     <div> Modelo: ${Aforce.modelo}
+          //                           Precio $ ${Aforce.precio}</div>
+          //                </div>`
+          //                               contenedorN.append(diN)
+          //                               carritoa();
+          //                          }
+          //                     }
 
-                         // let diP = document.createElement ("div")
+          //                     break;
 
-                         //      diP.innerHTML = `<div class="muestra-stock">
-                         //                          <h1>Puma</h1>
-                         //                          <div> Modelo: ${RSX.modelo} 
-                         //                                Precio $ ${RSX.precio}</div>
-                         //                          <div> Modelo: ${Xray.modelo} 
-                         //                                Precio $ ${Xray.precio}</div>
-                         //                               </div> `
+          //                case "puma":
+          //                     alert("usted eligio Puma")
 
-                         // contenedorP.append(diP)
 
+          //                     // let contenedorP = document.getElementById("contain")
 
-                         let puma = prompt("Tenemos 2 modelos. Opciones: Rsx, Xray (ingrese el modelo que desee)").toLowerCase();
-                         if (puma == "rsx") {
+          //                     // let diP = document.createElement ("div")
 
+          //                     //      diP.innerHTML = `<div class="muestra-stock">
+          //                     //                          <h1>Puma</h1>
+          //                     //                          <div> Modelo: ${RSX.modelo}
+          //                     //                                Precio $ ${RSX.precio}</div>
+          //                     //                          <div> Modelo: ${Xray.modelo}
+          //                     //                                Precio $ ${Xray.precio}</div>
+          //                     //                               </div> `
 
-                              let contenedorP = document.getElementById("carritoadd")
+          //                     // contenedorP.append(diP)
 
-                              let diP = document.createElement("div")
 
-                              diP.innerHTML = `<div class="muestra-stock">
-                         <h1>Puma</h1>
-                         <div> Modelo: ${RSX.modelo} 
-                               Precio $ ${RSX.precio}</div>
-                              </div> `
-                              contenedorP.append(diP)
-                              alert(`El precio de el modelo: ${puma} =$ ${RSX.precio} `)
-                              let compra = prompt("Desea comprarla? si/no").toLowerCase();
-                              if (compra == "si") {
-                                   carritoa();
+          //                     let puma = prompt("Tenemos 2 modelos. Opciones: Rsx, Xray (ingrese el modelo que desee)").toLowerCase();
+          //                     if (puma == "rsx") {
 
-                              }
 
-                         } else if (puma == "xray") {
+          //                          let contenedorP = document.getElementById("carritoadd")
 
-                              let contenedorP = document.getElementById("carritoadd")
+          //                          let diP = document.createElement("div")
 
-                              let diP = document.createElement("div")
+          //                          diP.innerHTML = `<div class="muestra-stock">
+          //                     <h1>Puma</h1>
+          //                     <div> Modelo: ${RSX.modelo}
+          //                           Precio $ ${RSX.precio}</div>
+          //                          </div> `
+          //                          contenedorP.append(diP)
+          //                          alert(`El precio de el modelo: ${puma} =$ ${RSX.precio} `)
+          //                          let compra = prompt("Desea comprarla? si/no").toLowerCase();
+          //                          if (compra == "si") {
+          //                               carritoa();
 
-                              diP.innerHTML = `<div class="muestra-stock">
-                         <h1>Puma</h1>
-                         <div> Modelo: ${Xray.modelo} 
-                               Precio $ ${Xray.precio}</div>
-                              </div> `
+          //                          }
 
-                              contenedorP.append(diP)
-                              alert(`El precio de el modelo: ${puma} =$ ${Xray.precio} `)
-                              let compra = prompt("Desea comprarla? si/no").toLowerCase();
-                              if (compra == "si") {
-                                   carritoa();
-                              }
-                         }
+          //                     } else if (puma == "xray") {
 
-                         break;
-                    default:
-                         alert("No tenemos stock de esa marca")
+          //                          let contenedorP = document.getElementById("carritoadd")
 
-                         break;
-               }
+          //                          let diP = document.createElement("div")
 
-               let accept = prompt("desea seguir viendo modelos? si/no");
+          //                          diP.innerHTML = `<div class="muestra-stock">
+          //                     <h1>Puma</h1>
+          //                     <div> Modelo: ${Xray.modelo}
+          //                           Precio $ ${Xray.precio}</div>
+          //                          </div> `
 
-               if (accept == "no") {
+          //                          contenedorP.append(diP)
+          //                          alert(`El precio de el modelo: ${puma} =$ ${Xray.precio} `)
+          //                          let compra = prompt("Desea comprarla? si/no").toLowerCase();
+          //                          if (compra == "si") {
+          //                               carritoa();
+          //                          }
+          //                     }
 
-                    alert("gracias por visitarnos, vuelva pronto");
-                    break;
-               }
+          //                     break;
+          //                default:
+          //                     alert("No tenemos stock de esa marca")
 
-          }
+          //                     break;
+          //           }
+
+          //           let accept = prompt("desea seguir viendo modelos? si/no");
+
+          //           if (accept == "no") {
+
+          //                const Toast = Swal.mixin({
+          //                     toast: true,
+          //                     position: 'top-end',
+          //                     showConfirmButton: false,
+          //                     timer: 3000,
+          //                     timerProgressBar: true,
+          //                     didOpen: (toast) => {
+          //                          toast.addEventListener('mouseenter', Swal.stopTimer)
+          //                          toast.addEventListener('mouseleave', Swal.resumeTimer)
+          //                     }
+          //                })
+
+          //                Toast.fire({
+          //                     icon: 'success',
+          //                     title: 'Salio del modo cliente correctamente'
+          //                })
+          //                break;
+          //           }
+
+          //      }
+
+          // }
 
      }
-
 }
 
 var input = document.getElementById("busqueda");
@@ -439,21 +492,76 @@ input.addEventListener("keypress", function (event) {
      }
 });
 
+//  ------------------------------Carrito casi terminado MODO CLIENTE-------------------
+
+let carritobd = [];
+
+
+
+base.forEach(sneaker => {
+     let conteinerzapa = document.getElementById("contain")
+     let divzapas = document.createElement("div")
+     divzapas.innerHTML = `<div class="conteinerzapa">
+        <img src="${sneaker.img}" alt="zapa1" />
+          <p>modelo:${sneaker.modelo} $${sneaker.precio} </p>
+          <button class="buttonzapa" id = "boton${sneaker.modelo}" > Comprar</button>
+      </div > `
+     conteinerzapa.append(divzapas)
+
+
+
+     let botonzapas = document.getElementById(`boton${sneaker.modelo}`)
+
+
+
+
+     const carrito = (modelotype) => {
+
+          let modelotipo = base.find(sneaker => sneaker.modelo == modelotype)
+          carritobd.push(modelotipo)
+          console.log(carritobd);
+          let carritols = localStorage.setItem("Carrito", JSON.stringify(carritobd))
+          console.log(JSON.parse(localStorage.getItem("Carrito")));
+
+          function addcarrito() {
+
+               let carritoagregar = document.getElementById("carritoadd")
+               let carritozapa = document.createElement("div")
+               carritozapa.innerHTML = `<div  class="conteinerzapa conteinerzapadd" >
+        <img class="imgcarritoadd" src="${sneaker.img}" alt="zapa1" />
+             <p>Precio:$${sneaker.precio} 
+             Modelo:${sneaker.modelo}</p> </div>`
+
+               carritoagregar.append(carritozapa)
+
+          }
+          addcarrito()
+
+     }
+     botonzapas.addEventListener("click", () => {
+
+          Swal.fire({
+               title: 'Seguro desea comprar el sneaker?',
+               showDenyButton: true,
+               showCancelButton: true,
+               confirmButtonText: 'Agregar',
+               denyButtonText: `No agregar`,
+          }).then((result) => {
+               /* Read more about isConfirmed, isDenied below */
+               if (result.isConfirmed) {
+                    Swal.fire('Se agrego al carrito ', '', 'success')
+                    carrito(sneaker.modelo)
+               } else if (result.isDenied) {
+                    Swal.fire('No se agrego al carrito', '', 'error')
+               }
+          })
+     })
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
+});
 
 
