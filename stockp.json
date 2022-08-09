@@ -1,0 +1,9 @@
+[
+     { "marca": "adidas", "modelo": "ozweego", "precio": 34999, "img": "img/zapa3.jpg" },
+     { "marca": "adidas", "modelo": "torsion", "precio": 30999, "img": "img/zapa3.jpg" },
+     { "marca": "adidas", "modelo": "climacool", "precio": 24999, "img": "img/zapa3.jpg" },
+     { "marca": "nike", "modelo": "Am90", "precio": 26999, "img": "img/zapa3.jpg" },
+     { "marca": "nike", "modelo": "Aforce", "precio": 20999, "img": "img/zapa3.jpg" },
+     { "marca": "puma", "modelo": "Xray", "precio": 22999, "img": "img/zapa3.jpg" },
+     { "marca": " puma", "modelo": "RSX", "precio": 25999, "img": "img/zapa3.jpg" }
+]

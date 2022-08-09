@@ -58,8 +58,30 @@
       <div><img src="img/zapa2.jpg" alt="zapa2" /></div> -->
     </section>
 
-    <div id="carritoadd">Carrito</div>
+    <div id="carritoadd" class="carritoadd">
+      <h3 class="carritoadd-title">Carrito</h3>
+    </div>
+    <section>
+      <h2 class="form-title">Contactanos</h2>
+      <form
+        id="form"
+        class="form"
+        action="https://formspree.io/f/xdojoore"
+        method="POST"
+      >
+        <label>Nombre:</label>
+        <input class="nombre" id="nombre" type="text" name="name" />
+        <label>Apellido:</label>
+        <input class="apellido" id="apellido" type="text" name="surname" />
 
+        <label>Email:</label>
+        <input class="mails" id="mail" type="email" name="email" />
+        <label>Mensaje:</label>
+        <input class="mensaje" id="mensaje" type="text" name="message" />
+        <button class="button" id="form-button">Enviar</button>
+        <p id="form-status"></p>
+      </form>
+    </section>
     <footer>
       <section class="pie-conteiner">
         <div class="pie-column1">

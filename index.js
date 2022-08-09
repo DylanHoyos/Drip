@@ -304,6 +304,46 @@ input.addEventListener("keypress", function (event) {
      }
 });
 
+
+
+
+
+var forma = document.getElementById("form");
+forma.addEventListener("submit", handleSubmit)
+
+async function handleSubmit(event) {
+     event.preventDefault();
+     const data = new FormData(this);
+     const response = await fetch(`https://formspree.io/f/xdojoore`, {
+          method: `POST`,
+          body: data,
+          headers: {
+               'Accept': 'application/json'
+          }
+     })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      // } else if (info == "cliente") {
      //      let divC = document.createElement("div")
 
