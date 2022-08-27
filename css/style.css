@@ -1,6 +1,6 @@
 body {
-  font-family: "Barlow", sans-serif;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Barlow", sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
   margin: 0;
   padding: 0;
 }
@@ -19,6 +19,15 @@ body {
 }
 .nav-item {
   padding: 2rem;
+}
+.carritoIcon {
+  margin: 1rem;
+}
+.preciototal {
+  margin-right: auto !important;
+}
+#preciototal {
+  margin-right: auto !important;
 }
 .formu {
   min-height: 120px;
