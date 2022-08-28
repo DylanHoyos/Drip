@@ -26,9 +26,7 @@ body {
 .preciototal {
   margin-right: auto !important;
 }
-#preciototal {
-  margin-right: auto !important;
-}
+
 .formu {
   min-height: 120px;
   display: flex;
@@ -89,9 +87,8 @@ body {
   align-items: center;
   justify-content: center;
 }
-.conteinerzapadd {
-  background-color: beige;
-}
+/* .conteinerzapadd {
+} */
 .carritoadd {
   min-height: 300px;
   min-width: 350px;

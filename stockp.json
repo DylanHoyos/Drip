@@ -1,9 +1,9 @@
 [
-     { "marca": "adidas", "modelo": "ozweego", "precio": 34999, "img": "img/zapa3.jpg", "cantidad": 1 },
-     { "marca": "adidas", "modelo": "torsion", "precio": 30999, "img": "img/zapa3.jpg", "cantidad": 1 },
-     { "marca": "adidas", "modelo": "climacool", "precio": 24999, "img": "img/zapa3.jpg", "cantidad": 1 },
-     { "marca": "nike", "modelo": "Am90", "precio": 26999, "img": "img/zapa3.jpg", "cantidad": 1 },
-     { "marca": "nike", "modelo": "Aforce", "precio": 20999, "img": "img/zapa3.jpg" , "cantidad": 1},
-     { "marca": "puma", "modelo": "Xray", "precio": 22999, "img": "img/zapa3.jpg" , "cantidad": 1},
-     { "marca": " puma", "modelo": "RSX", "precio": 25999, "img": "img/zapa3.jpg" , "cantidad": 1}
+     { "marca": "adidas", "modelo": "Yeezy", "precio": 34999, "img": "img/adidas-Yeezy-700.jpg", "cantidad": 1 },
+     { "marca": "adidas", "modelo": "UltraBoost", "precio": 30999, "img": "img/adidas-Ultra-Boost.jpg", "cantidad": 1 },
+     { "marca": "adidas", "modelo": "NMD", "precio": 22999, "img": "img/zapa2.jpg" , "cantidad": 1},
+     { "marca": "nike", "modelo": "Jordan 1", "precio": 26999, "img": "img/zapa1.jpg", "cantidad": 1 },
+     { "marca": "Vans", "modelo": "Vans Lighthouse", "precio": 20999, "img": "img/zapa3.jpg" , "cantidad": 1},
+     { "marca": "dc", "modelo": "Legacy", "precio": 24999, "img": "img/Legacy.jpg", "cantidad": 1 },
+     { "marca": " puma", "modelo": "RSX", "precio": 25999, "img": "img/rsx.jpg" , "cantidad": 1}
 ]

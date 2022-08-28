@@ -5,7 +5,7 @@ fetch("./stockp.json")
           let carritobd = [];
           let containerCarrito = document.getElementById("carritoConteiner");
           let total = document.getElementById("preciototal");
-          let cant = document.getElementById("cantidadS")
+
 
           let terminar = document.getElementById("terminar-compra");
 
@@ -33,17 +33,25 @@ fetch("./stockp.json")
                     }).then((result) => {
                          /* Read more about isConfirmed, isDenied below */
                          if (result.isConfirmed) {
+
                               Swal.fire(`Se agrego al carrito '${prod.modelo}'`, "", "success");
+                              addCarrito(prod.modelo);
                          } else if (result.isDenied) {
                               Swal.fire("No se agrego al carrito", "", "error");
+
                          }
                     });
 
-                    addCarrito(prod.modelo);
+
                });
           });
 
           terminar.addEventListener("click", () => {
+               Swal.fire(
+                    'GRACIAS POR SU COMPRA',
+                    'En poco tiempo llegara su pedido!',
+
+               )
                carritobd.length = 0;
                localStorage.removeItem("carrito");
 
@@ -54,17 +62,19 @@ fetch("./stockp.json")
                let modelotipo = data.find((sneaker) => sneaker.modelo == modelSneaker);
 
                for (let i = 0; i < carritobd.length; i++) {
-                    if (carritobd[i].modelo === modelSneaker) {
+                    if (carritobd[i].modelo == modelSneaker) {
                          carritobd[i].cantidad++;
-                         // cant[i].value++;
+                         // console.log(carritobd[i].cantidad);
 
+                         let totalsuma = carritobd[i].precio * carritobd[i].cantidad;
+                         actualizarCarrito();
 
+                         return;
 
 
                     }
                }
                carritobd.push(modelotipo);
-
                actualizarCarrito();
                console.log(carritobd);
           };
@@ -88,16 +98,15 @@ fetch("./stockp.json")
                          <img class="imgcarritoadd" src="${sneaker.img}" alt="zapa1" />
                          <p>Precio:$${sneaker.precio} 
                          Modelo:${sneaker.modelo}</p> 
-                         <input type="number"  id="cantidadS" value=${sneaker.cantidad}> 
+                         <input type="number" min="1" id="cantidadS" value="${sneaker.cantidad}"> 
                          <button id="del${sneaker.modelo}"> eliminar </button>
                          </div>`;
                     containerCarrito.appendChild(divC);
 
                     localStorage.setItem("carrito", JSON.stringify(carritobd));
                });
+               totalprecio();
 
-               total.innerText =
-                    "$" + carritobd.reduce((acc, sneaker) => acc + sneaker.precio, 0);
 
                carritobd.forEach((sneaker) => {
                     let botoneliminar = document.getElementById(`del${sneaker.modelo}`);
@@ -107,6 +116,19 @@ fetch("./stockp.json")
                     });
                });
           };
+          const totalprecio = () => {
+               let totalfinal = 0
+               carritobd.forEach(sneaker => {
+                    let precios = sneaker.precio
+                    let cantidadT = sneaker.cantidad
+
+                    totalfinal = totalfinal + precios * cantidadT;
+
+               })
+               total.innerHTML = `Precio Total: $ ${totalfinal} `
+
+          };
+
 
           if (localStorage.getItem("carrito")) {
                carritobd = JSON.parse(localStorage.getItem("carrito"));
