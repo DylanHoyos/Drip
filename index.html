@@ -22,7 +22,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">DRIP</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03"
           aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -37,9 +37,7 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Features</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
+
             <li class="nav-item">
               <a class="nav-link" href="#">About</a>
             </li>
@@ -56,9 +54,11 @@
             </li>
           </ul>
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <i class="fa-solid fa-cart-shopping carritoIcon"></i>
-          </button>
+          <div class="conteiner-carrito">
+            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <i class="fa-solid fa-cart-shopping carritoIcon"></i>
+            </button>
+          </div>
 
           <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -78,7 +78,7 @@
                   <p> </p>
                   <p id="preciototal" class="preciototal">Precio Total:$0</p>
 
-                  <button type="button" class="btn btn-primary" id="terminar-compra">Terminar
+                  <button type="button" class="btn " id="terminar-compra">Terminar
                     Compra</button>
                 </div>
               </div>
@@ -94,12 +94,7 @@
     <h1 class="hero-titulo">Drip</h1>
   </div>
   <section class="main">
-    <form class="formu" action="" id="form">
-      <h3>Si es empleado ingrese: "Empleado"</h3>
-      <input type="text" id="tipo" />
 
-      <button class="formu-boton" id="but">aceptar</button>
-    </form>
     <h1 class="main-titulo" id="titleprincipal">SneakerShop</h1>
 
     <p class="main-parrafo">
@@ -121,10 +116,8 @@
       <div><img src="img/zapa2.jpg" alt="zapa2" /></div> -->
   </section>
 
-  <div id="carritoadd" class="carritoadd">
-    <h3 class="carritoadd-title">Carrito</h3>
-  </div>
-  <section>
+
+  <section class="main-fondo">
     <h2 class="form-title">Contactanos</h2>
     <form id="form" class="form" action="https://formspree.io/f/xdojoore" method="POST">
       <label>Nombre:</label>

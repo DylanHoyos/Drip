@@ -13,9 +13,12 @@ fetch("./stockp.json")
                let conteinerzapa = document.getElementById("contain");
                let divzapas = document.createElement("div");
                divzapas.innerHTML = `<div class="conteinerzapa">
-        <img src="${sneaker.img}" alt="zapa1" />
-          <p>modelo:${sneaker.modelo} $${sneaker.precio} </p>
-          <button class="buttonzapa" id = "boton${sneaker.modelo}" > Comprar</button>
+               <p class="modeloCard">${sneaker.modelo}</p>
+        <img class="imgCard" src="${sneaker.img}" alt="zapa1" />
+          <div class="footerCard">
+               <p class="precioCard"> $${sneaker.precio} </p>
+                <button class="buttonzapa" id = "boton${sneaker.modelo}" > Comprar</button>
+          </div>
       </div > `;
                conteinerzapa.append(divzapas);
           });

@@ -71,6 +71,12 @@ body {
   font-size: 20px;
   text-align: center;
 }
+.main-fondo {
+  background-image: url(/img/fonde.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .flex-items {
   display: flex;
   align-items: center;
@@ -78,10 +84,15 @@ body {
   flex-wrap: wrap;
 }
 .flex-items img {
-  height: 400px;
-  width: 400px;
+  height: 350px;
+  width: 350px;
 }
+
 .conteinerzapa {
+  margin: 1rem;
+  padding: 1rem;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.198);
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -103,10 +114,62 @@ body {
   height: 150px;
   width: 150px;
 }
+.footerCard {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.modeloCard {
+  font-size: 32px;
+}
+
+.precioCard {
+  padding-left: 1rem;
+  margin: 0;
+  font-size: 20px;
+  margin-right: auto;
+}
+.btn {
+  background-color: rgb(255, 77, 0) !important;
+  transition: all 0.2s ease-in-out;
+}
+.btn:hover {
+  background-color: #fff !important;
+  border: 1px solid rgb(255, 77, 0) !important;
+  color: rgb(255, 77, 0);
+  background-color: #fff;
+}
+
+.conteiner-carrito {
+  background-color: rgb(255, 77, 0);
+  border-radius: 8px;
+  color: #fff;
+  transition: all 0.1s ease-in-out;
+}
+.conteiner-carrito:hover {
+  /* border: 1px solid rgb(255, 77, 0); */
+  color: rgb(255, 77, 0);
+  background-color: #fff;
+}
 
 .buttonzapa {
   margin-left: auto;
-  margin-right: 5rem;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: rgb(255, 77, 0);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.buttonzapa:hover {
+  border: 1px solid rgb(255, 77, 0);
+  color: rgb(255, 77, 0);
+  background-color: #fff;
 }
 .muestra-stock {
   min-height: 200px;
@@ -145,7 +208,7 @@ footer {
   margin-left: auto;
   margin-right: auto;
   padding: 1rem;
-  background-color: rgba(228, 228, 228, 0.616);
+  background-color: rgba(181, 181, 181, 0.285);
   border-radius: 16px;
   margin-bottom: 2rem;
 }
