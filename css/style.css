@@ -86,7 +86,7 @@ body {
 }
 
 .main-fondo {
-  background-image: url(./img/fonde.jpg);
+  background-image: url(../img/fonde.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
