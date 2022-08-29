@@ -5,8 +5,6 @@ fetch("./stockp.json")
           let carritobd = [];
           let containerCarrito = document.getElementById("carritoConteiner");
           let total = document.getElementById("preciototal");
-
-
           let terminar = document.getElementById("terminar-compra");
 
           data.forEach((sneaker) => {
@@ -34,7 +32,7 @@ fetch("./stockp.json")
                          confirmButtonText: "Agregar",
                          denyButtonText: `No agregar`,
                     }).then((result) => {
-                         /* Read more about isConfirmed, isDenied below */
+
                          if (result.isConfirmed) {
 
                               Swal.fire(`Se agrego al carrito '${prod.modelo}'`, "", "success");
@@ -67,7 +65,7 @@ fetch("./stockp.json")
                for (let i = 0; i < carritobd.length; i++) {
                     if (carritobd[i].modelo == modelSneaker) {
                          carritobd[i].cantidad++;
-                         // console.log(carritobd[i].cantidad);
+
 
                          let totalsuma = carritobd[i].precio * carritobd[i].cantidad;
                          actualizarCarrito();
@@ -79,10 +77,9 @@ fetch("./stockp.json")
                }
                carritobd.push(modelotipo);
                actualizarCarrito();
-               console.log(carritobd);
+
           };
 
-          // -------------------arreglar-------------------
           const eliminarCarrito = (modelSneaker) => {
 
                let tillas = carritobd.find((sneaker) => sneaker.modelo == modelSneaker);
@@ -139,72 +136,35 @@ fetch("./stockp.json")
                actualizarCarrito();
           }
 
-          // data.forEach(sneaker => {
 
-          //      let botonzapas = document.getElementById(`boton${sneaker.modelo}`)
-          //      botonzapas.addEventListener("click", () => {
-
-          //           Swal.fire({
-          //                title: 'Seguro desea comprar el sneaker?',
-          //                showDenyButton: true,
-          //                showCancelButton: false,
-          //                confirmButtonText: 'Agregar',
-          //                denyButtonText: `No agregar`,
-          //           }).then((result) => {
-          //                /* Read more about isConfirmed, isDenied below */
-          //                if (result.isConfirmed) {
-          //                     Swal.fire('Se agrego al carrito ', '', 'success')
-          //                     carrito(sneaker.modelo)
-          //                } else if (result.isDenied) {
-          //                     Swal.fire('No se agrego al carrito', '', 'error')
-          //                }
-          //           })
-          //      })
-
-          // })
-
-          // const carrito = (modelotype) => {
-
-          //      let modelotipo = data.find(sneaker => sneaker.modelo == modelotype)
-
-          //      carritobd.push(modelotipo)
-          //      console.log(carritobd);
-          //      localStorage.setItem("Carrito", JSON.stringify(carritobd))
-          //      // console.log(JSON.parse(localStorage.getItem("Carrito")));
-
-          //      addcarrito()
-
-          // }
-
-          // function addcarrito() {
-
-          //      carritobd.forEach(sneaker => {
-          //           let carritoagregar = document.getElementById("carritoadd")
-          //           let carritozapa = document.createElement("div")
-          //           carritozapa.innerHTML = `
-          //           <div  class="conteinerzapa conteinerzapadd" >
-          //                <img class="imgcarritoadd" src="${sneaker.img}" alt="zapa1" />
-          //                <p>Precio:$${sneaker.precio}
-          //                      Modelo:${sneaker.modelo}</p>
-          //               <button id="sumarCant"> mas </button>    <p>${sneaker.cantidad}</p> <button id="restarCant"> menos </button>
-          //           </div>`
-
-          //           carritoagregar.append(carritozapa)
-
-          //      })
-
-          // }
      });
 
-// let base = JSON.parse(localStorage.getItem("stock"))
 
-let separar = (key, value) => {
-     localStorage.setItem(key, value);
-};
 
-for (let reco of Stock) {
-     separar(reco.modelo, JSON.stringify(reco));
+
+var forma = document.getElementById("form");
+forma.addEventListener("submit", handleSubmit);
+
+async function handleSubmit(event) {
+     event.preventDefault();
+     const data = new FormData(this);
+     const response = await fetch(`https://formspree.io/f/xdojoore`, {
+          method: `POST`,
+          body: data,
+          headers: {
+               Accept: "application/json",
+          },
+     });
 }
+
+
+
+
+
+
+// --------CODIGO A LO LARGO DEL CURSO--------------------
+
+
 
 // let ozweego = JSON.parse(localStorage.getItem("ozweego"));
 // let torsion = JSON.parse(localStorage.getItem("torsion"));
@@ -370,20 +330,7 @@ for (let reco of Stock) {
 //      }
 // });
 
-var forma = document.getElementById("form");
-forma.addEventListener("submit", handleSubmit);
 
-async function handleSubmit(event) {
-     event.preventDefault();
-     const data = new FormData(this);
-     const response = await fetch(`https://formspree.io/f/xdojoore`, {
-          method: `POST`,
-          body: data,
-          headers: {
-               Accept: "application/json",
-          },
-     });
-}
 
 // } else if (info == "cliente") {
 //      let divC = document.createElement("div")
